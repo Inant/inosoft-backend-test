@@ -18,6 +18,12 @@ class KendaraanInterfaceServiceImplement implements KendaraanInterfaceService
         return $kendaraan;
     }
 
+    public function getById($id)
+    {
+        $kendaraan = $this->kendaraanRepository->getById($id);
+        return $kendaraan;
+    }
+
     public function add($data)
     {
         $kendaraan = $this->kendaraanRepository->store($data);

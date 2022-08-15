@@ -18,7 +18,7 @@ class CreateMobilsTable extends Migration
             $table->string('mesin');
             $table->integer('kapasitas_penumpang');
             $table->string('tipe');
-            $table->string('id_kendaraan');
+            $table->foreignId('id_kendaraan')->constrained('kendaraan')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\KendaraanInterfaceService;
+use Exception;
 use Illuminate\Http\Request;
 
 class KendaraanController extends Controller
@@ -16,17 +17,34 @@ class KendaraanController extends Controller
 
     public function index(Request $request)
     {
-        $kendaraan = $this->kendaraanService->getAll($request);
-        return response()->json([
-            'data' => $kendaraan,
-            'message' => 'Success'
-        ],200);
+        try {
+            $kendaraan = $this->kendaraanService->getAll($request);
+            return response()->json([
+                'data' => $kendaraan,
+                'message' => 'Success'
+            ],200);
+        }
+        catch (Exception $e) {
+            return response()->json([
+                'message' => 'Internal server error.'
+            ],500);
+        }
     }
 
-    public function store(Request $request)
+    public function show($id)
     {
-        $this->kendaraanService->add($request->all());
-        return response()->json(['message' => 'Success'], 200);
+        try {
+            $kendaraan = $this->kendaraanService->getById($id);
+            return response()->json([
+                'data' => $kendaraan,
+                'message' => 'Success'
+            ],200);
+        }
+        catch (Exception $e) {
+            return response()->json([
+                'message' => 'Internal server error.'
+            ],500);
+        }
     }
 
     public function getStok()

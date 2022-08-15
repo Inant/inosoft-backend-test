@@ -13,8 +13,17 @@ class CreatePenjualansTable extends Migration
      */
     public function up()
     {
-        Schema::create('penjualans', function (Blueprint $table) {
+        Schema::create('penjualan', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal');
+            $table->foreignId('id_kendaraan')->constrained('kendaraan')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('id_user')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('atas_nama');
+            $table->text('alamat');
+            $table->integer('total');
+            $table->text('keterangan')->nullable();
+            $table->string('no_rangka');
+            $table->string('no_mesin');
             $table->timestamps();
         });
     }
@@ -26,6 +35,6 @@ class CreatePenjualansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penjualans');
+        Schema::dropIfExists('penjualan');
     }
 }

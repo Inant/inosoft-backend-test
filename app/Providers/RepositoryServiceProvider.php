@@ -11,6 +11,9 @@ use App\Repositories\MotorRepositoryImplement;
 use App\Repositories\MobilRepository;
 use App\Repositories\MobilRepositoryImplement;
 
+use App\Repositories\PenjualanRepository;
+use App\Repositories\PenjualanRepositoryImplement;
+
 use App\Services\KendaraanInterfaceService;
 use App\Services\KendaraanInterfaceServiceImplement;
 
@@ -19,6 +22,9 @@ use App\Services\MotorInterfaceServiceImplement;
 
 use App\Services\MobilInterfaceService;
 use App\Services\MobilInterfaceServiceImplement;
+
+use App\Services\PenjualanInterfaceService;
+use App\Services\PenjualanInterfaceServiceImplement;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -39,6 +45,9 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->bind(MobilRepository::class, MobilRepositoryImplement::class);
         $this->app->bind(MobilInterfaceService::class, MobilInterfaceServiceImplement::class);
+
+        $this->app->bind(PenjualanRepository::class, PenjualanRepositoryImplement::class);
+        $this->app->bind(PenjualanInterfaceService::class, PenjualanInterfaceServiceImplement::class);
     }
 
     /**

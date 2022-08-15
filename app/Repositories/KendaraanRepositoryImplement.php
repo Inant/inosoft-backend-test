@@ -12,6 +12,12 @@ class KendaraanRepositoryImplement implements KendaraanRepository
         return $kendaraan;
     }
 
+    public function getById($id)
+    {
+        $kendaraan = Kendaraan::where('_id', $id)->first();
+        return $kendaraan;
+    }
+
     public function store($data)
     {
         $kendaraan = new Kendaraan();

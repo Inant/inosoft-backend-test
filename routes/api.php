@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\MotorController;
 use App\Http\Controllers\MobilController;
+use App\Http\Controllers\PenjualanController;
 use App\Models\Kendaraan;
 
 /*
@@ -24,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('kendaraan')->group(function () {
     Route::get('/', [KendaraanController::class, 'index']);
+    Route::get('/{id}', [KendaraanController::class, 'show']);
     // Route::post('/', [KendaraanController::class, 'store']);
 });
 
@@ -39,4 +41,5 @@ Route::prefix('mobil')->group(function () {
 
 Route::get('stok-kendaraan', [KendaraanController::class, 'getStok']);
 
-Route::post('penjualan', [KendaraanController::class, 'getStok']);
+Route::post('penjualan', [PenjualanController::class, 'store']);
+Route::get('penjualan/laporan', [PenjualanController::class, 'laporan']);
