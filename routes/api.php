@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KendaraanController;
@@ -23,23 +24,25 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('kendaraan')->group(function () {
+Route::post('login', [LoginController::class, 'login'])->name('login');
+
+Route::group(['prefix' => 'kendaraan', 'middleware' => 'jwt.verify'],function () {
     Route::get('/', [KendaraanController::class, 'index']);
     Route::get('/{id}', [KendaraanController::class, 'show']);
     // Route::post('/', [KendaraanController::class, 'store']);
 });
 
-Route::prefix('motor')->group(function () {
+Route::group(['prefix' => 'motor', 'middleware' => 'jwt.verify'],function () {
     Route::get('/', [MotorController::class, 'index']);
     Route::post('/', [MotorController::class, 'store']);
 });
 
-Route::prefix('mobil')->group(function () {
+Route::group(['prefix' => 'mobil', 'middleware' => 'jwt.verify'],function () {
     Route::get('/', [MobilController::class, 'index']);
     Route::post('/', [MobilController::class, 'store']);
 });
 
-Route::get('stok-kendaraan', [KendaraanController::class, 'getStok']);
+Route::get('stok-kendaraan', [KendaraanController::class, 'getStok'])->middleware('jwt.verify');
 
-Route::post('penjualan', [PenjualanController::class, 'store']);
-Route::get('penjualan/laporan', [PenjualanController::class, 'laporan']);
+Route::post('penjualan', [PenjualanController::class, 'store'])->middleware('jwt.verify');
+Route::get('penjualan/laporan', [PenjualanController::class, 'laporan'])->middleware('jwt.verify');
