@@ -29,7 +29,6 @@ class PenjualanRequest extends FormRequest
         return [
             'tanggal' => ['required', 'date'],
             'id_kendaraan' => ['required', 'string'],
-            'id_user' => ['required'],
             'atas_nama' => ['required', 'string'],
             'alamat' => ['required', 'string'],
             'total' => ['required','numeric'],

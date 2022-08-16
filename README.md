@@ -1,3 +1,9 @@
+### Requirements
+
+- PHP 8.0
+
+- MongoDB
+
 ### Installation
 - Run composer install command: `composer install`
 
@@ -13,8 +19,8 @@
 
 - Open postman, and import postman collection from postman folder
 
-- You can test the available endpoints on postman
+- After run login endpoint, edit collection and put your access token to  Authorization with Bearer token
 
-- After login, put your access token to Authorization with Bearer token
+- You can test the available endpoints on postman
 
 - To run the tests use the command: `php artisan test`

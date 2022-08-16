@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "946b2429-3af0-4480-88bf-58744562c88b",
+		"name": "Inant Kharisma - Inosoft Backend Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6669248"
+	},
+	"item": [
+		{
+			"name": "LOGIN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/login",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET KENDARAAN",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{domain}}/kendaraan",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"kendaraan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE KENDARAAN MOTOR",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tahun_keluaran",
+							"value": "2022",
+							"type": "text"
+						},
+						{
+							"key": "warna",
+							"value": "Putih",
+							"type": "text"
+						},
+						{
+							"key": "harga",
+							"value": "400000001",
+							"type": "text"
+						},
+						{
+							"key": "tipe_suspensi",
+							"value": "Monoshock",
+							"type": "text"
+						},
+						{
+							"key": "tipe_transmisi",
+							"value": "Manual",
+							"type": "text"
+						},
+						{
+							"key": "stok",
+							"value": "10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/motor",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"motor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE KENDARAAN MOBIL",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tahun_keluaran",
+							"value": "2022",
+							"type": "text"
+						},
+						{
+							"key": "warna",
+							"value": "Putih",
+							"type": "text"
+						},
+						{
+							"key": "harga",
+							"value": "400000001",
+							"type": "text"
+						},
+						{
+							"key": "mesin",
+							"value": "2000",
+							"type": "text"
+						},
+						{
+							"key": "kapasitas_penumpang",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "tipe",
+							"value": "Innova G",
+							"type": "text"
+						},
+						{
+							"key": "stok",
+							"value": "10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/mobil",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"mobil"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "STOK KENDARAAN",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/stok-kendaraan",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"stok-kendaraan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DETAIL KENDARAAN",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/kendaraan/62fa3da637a954c1ec003faa",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"kendaraan",
+						"62fa3da637a954c1ec003faa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PENJUALAN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tanggal",
+							"value": "2022-08-15",
+							"type": "text"
+						},
+						{
+							"key": "id_kendaraan",
+							"value": "62fa3da637a954c1ec003faa",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "atas_nama",
+							"value": "Mamat",
+							"type": "text"
+						},
+						{
+							"key": "alamat",
+							"value": "Perumahan heaven land, Badean, Bondowoso, no 5",
+							"type": "text"
+						},
+						{
+							"key": "total",
+							"value": "400000000",
+							"type": "text"
+						},
+						{
+							"key": "keterangan",
+							"value": "Pembelian unit mobil Innova G",
+							"type": "text"
+						},
+						{
+							"key": "no_rangka",
+							"value": "666",
+							"type": "text"
+						},
+						{
+							"key": "no_mesin",
+							"value": "667",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/penjualan",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"penjualan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LAPORAN PENJUALAN",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/penjualan/laporan?dari=2022-08-16&sampai=2022-08-16&tipe=motor",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"penjualan",
+						"laporan"
+					],
+					"query": [
+						{
+							"key": "dari",
+							"value": "2022-08-16"
+						},
+						{
+							"key": "sampai",
+							"value": "2022-08-16"
+						},
+						{
+							"key": "tipe",
+							"value": "motor"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvYXBpL2xvZ2luIiwiaWF0IjoxNjYwNjE0NTk0LCJleHAiOjE2NjA2MTgxOTQsIm5iZiI6MTY2MDYxNDU5NCwianRpIjoiQ2hOWlhEZU9JNTlLREtIYyIsInN1YiI6IjYyZmFmNzg4ZjI0MGE3MWUxMTA5MDgyMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.fqN6uJZ7_aYOscQntQKzaFOLtTBr-2bbvBicDKOVm6g",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://localhost:8003/api",
+			"type": "string"
+		}
+	]
+}

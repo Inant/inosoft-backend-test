@@ -36,7 +36,7 @@ class PenjualanController extends Controller
             ], 200);
         } catch (Exception $e) {
             return response()->json([
-                'message' => 'Internal server error.'
+                'message' => 'Internal server error.' . $e->getMessage()
             ], 500);
         }
     }

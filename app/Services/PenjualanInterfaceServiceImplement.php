@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\PenjualanRepository;
 use App\Services\KendaraanInterfaceService;
+use Illuminate\Support\Facades\Auth;
 
 class PenjualanInterfaceServiceImplement implements PenjualanInterfaceService
 {
@@ -19,7 +20,7 @@ class PenjualanInterfaceServiceImplement implements PenjualanInterfaceService
     {
         $penjualan['tanggal'] = $data['tanggal'];
         $penjualan['id_kendaraan'] = $data['id_kendaraan'];
-        $penjualan['id_user'] = $data['id_user'];
+        $penjualan['id_user'] = Auth::user()->id;
         $penjualan['atas_nama'] = $data['atas_nama'];
         $penjualan['alamat'] = $data['alamat'];
         $penjualan['total'] = $data['total'];
