@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class CreateMotorTest extends BaseTest
 {
@@ -28,8 +29,16 @@ class CreateMotorTest extends BaseTest
 
     public function test_invalid_data()
     {
-        $user = User::factory()->make();
-        $this->actingAs($user, 'api');
+        $this->withoutMiddleware();
+
+        $user = User::create([
+            'name' => 'admin',
+            'email' => 'admin@mail.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+        // $this->actingAs($user, 'api');
 
         $data = [
             "tahun_keluaran" => "2022",
@@ -39,13 +48,23 @@ class CreateMotorTest extends BaseTest
             "stok" => 10,
         ];
 
-        $response = $this->post(route('motor.store'), $data);
-        $this->assertAuthenticatedAs($user);
+        $response = $this->actingAs($user)->post(route('motor.store'), $data);
+        // $this->assertAuthenticatedAs($user);
         $response->assertStatus(422);
     }
 
     public function test_success_create_motor()
     {
+        $this->withoutMiddleware();
+
+        $user = User::create([
+            'name' => 'admin',
+            'email' => 'admin@mail.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
         $data = [
             "tahun_keluaran" => "2022",
             "warna" => "Hitam",
